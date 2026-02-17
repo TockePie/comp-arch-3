@@ -3,9 +3,16 @@ root@52cf8b845a48:/app# /opt/xpack-qemu-arm-7.2.0-1/bin/qemu-system-gnuarmeclips
 xPack QEMU emulator version 2.8.0 (v2.8.0-16-xpack-legacy)
 Copyright (c) 2003-2016 Fabrice Bellard and the QEMU Project developers
 
+
 root@52cf8b845a48:/app# arm-none-eabi-gcc -x assembler-with-cpp -c -O0 -g3 -mcpu=cortex-m4 -mthumb -Wall start.S -o start.o
+
+
 root@52cf8b845a48:/app# arm-none-eabi-gcc start.o -mcpu=cortex-m4 -mthumb -Wall --specs=nosys.specs -nostdlib -lgcc -T./lscript.ld -o firmware.elf
+
+
 root@52cf8b845a48:/app# arm-none-eabi-gcc start.o -mcpu=cortex-m4 -mthumb -Wall --specs=nosys.specs -nostdlib -lgcc -T./lscript.ld -o firmware.elf firmware.bin
+
+
 root@52cf8b845a48:/app# qemu-system-gnuarmeclipse --verbose --verbose --board STM32F4-Discovery --mcu STM32F407VG -d unimp,guest_errors --image firmware.bin --semihosting-config enable=on,target=native -s -S -nographic
 
 xPack 64-bit QEMU v2.8.0 (qemu-system-gnuarmeclipse).
@@ -42,6 +49,7 @@ GDB Server listening on: 'tcp::1234'...
 QEMU 2.8.0 monitor - type 'help' for more information
 (qemu) Cortex-M4 r0p0 core reset.
 
+
 root@52cf8b845a48:/app# gdb-multiarch firmware.elf -ex="target extended-remote:1234"
 GNU gdb (Ubuntu 12.1-0ubuntu1~22.04.2) 12.1
 Copyright (C) 2022 Free Software Foundation, Inc.
@@ -68,6 +76,7 @@ __hard_reset__ () at start.S:17
 __hard_reset__ () at start.S:19
 19      b __hard_reset__
 (gdb)
+
 
 root@52cf8b845a48:/app# make
 arm-none-eabi-gcc -x assembler-with-cpp -c -O0 -g3 -mcpu=cortex-m4 -mthumb -Wall start.S -o start.o
