@@ -1,0 +1,9 @@
+services:
+  lab3:
+    build: .
+    volumes:
+      - .:/app
+    container_name: "kradozhon-io32-lab3"
+    stdin_open: true
+    tty: true
+    command: /bin/bash
