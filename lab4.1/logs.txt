@@ -1,0 +1,19 @@
+maxim@maxim-kradozhon:~$ cd Downloads
+maxim@maxim-kradozhon:~/Downloads$ chmod +x st-stm32cubeide_1.11.2_14494_20230119_0724.unsigned_amd64.sh
+maxim@maxim-kradozhon:~/Downloads$ bash st-stm32cubeide_1.11.2_14494_20230119_0724.unsigned_amd64.sh
+...
+
+maxim@maxim-kradozhon:~$ mkdir -p ~/opt/xPacks/qemu-arm
+maxim@maxim-kradozhon:~$ cd ~/opt/xPacks/qemu-arm
+maxim@maxim-kradozhon:~/opt/xPacks/qemu-arm$ tar xvf ~/Downloads/xpack-qemu-arm-7.2.0-1-linux-x64.tar.gz
+xpack-qemu-arm-7.2.0-1/
+xpack-qemu-arm-7.2.0-1/bin/
+xpack-qemu-arm-7.2.0-1/bin/qemu-system-aarch64
+xpack-qemu-arm-7.2.0-1/bin/qemu-system-gnuarmeclipse
+xpack-qemu-arm-7.2.0-1/bin/qemu-system-arm
+...
+maxim@maxim-kradozhon:~/opt/xPacks/qemu-arm$ chmod -R -w xpack-qemu-arm-7.2.0-1
+maxim@maxim-kradozhon:~/opt/xPacks/qemu-arm$ ~/opt/xPacks/qemu-arm/xpack-qemu-arm-7.2.0-1/bin/qemu-system-gnuarmeclipse --version
+xPack QEMU emulator version 2.8.0 (v2.8.0-16-xpack-legacy)
+Copyright (c) 2003-2016 Fabrice Bellard and the QEMU Project developers
+
